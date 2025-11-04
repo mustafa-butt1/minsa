@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Minsa 💝</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            overflow-x: hidden;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .section {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transform: translateY(50px);
+            animation: fadeInUp 1s ease forwards;
+            padding: 40px 20px;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section:nth-child(2) { animation-delay: 0.3s; }
+        .section:nth-child(3) { animation-delay: 0.6s; }
+        .section:nth-child(4) { animation-delay: 0.9s; }
+        .section:nth-child(5) { animation-delay: 1.2s; }
+
+        h1 {
+            font-size: 4em;
+            margin-bottom: 20px;
+            text-align: center;
+            background: linear-gradient(45deg, #fff, #ffd1dc, #fff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 20px 0;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
+        }
+
+        .message {
+            font-size: 1.3em;
+            line-height: 1.8;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .heart-container {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 30px;
+            animation: float 6s infinite;
+            opacity: 0;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.8;
+            }
+            90% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .cake-container {
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .cake {
+            font-size: 120px;
+            display: inline-block;
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .cake:hover {
+            transform: scale(1.1);
+        }
+
+        .candle {
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 40px;
+            animation: flicker 1s infinite;
+        }
+
+        @keyframes flicker {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; transform: translateX(-50%) scale(0.95); }
+        }
+
+        .candle.blown {
+            animation: blowOut 0.5s ease forwards;
+        }
+
+        @keyframes blowOut {
+            to {
+                opacity: 0;
+                transform: translateX(-50%) translateY(-30px) scale(0.5);
+            }
+        }
+
+        .wish-popup {
+            display: none;
+            background: rgba(255, 255, 255, 0.95);
+            color: #667eea;
+            padding: 40px;
+            border-radius: 20px;
+            margin-top: 30px;
+            animation: popIn 0.5s ease;
+            box-shadow: 0 10px 50px rgba(0, 0, 0, 0.3);
+        }
+
+        @keyframes popIn {
+            0% {
+                transform: scale(0);
+                opacity: 0;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .instruction {
+            font-size: 1.1em;
+            color: #ffd1dc;
+            margin-top: 10px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.6; }
+        }
+
+        .dua-box {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.2), rgba(255, 182, 193, 0.2));
+            padding: 40px;
+            border-radius: 20px;
+            margin: 30px 0;
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            text-align: center;
+        }
+
+        .dua-text {
+            font-size: 1.4em;
+            line-height: 1.9;
+            margin: 15px 0;
+        }
+
+        .turkish-quote {
+            font-size: 1.8em;
+            font-style: italic;
+            color: #ffd1dc;
+            margin: 30px 0;
+            text-align: center;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .signature {
+            font-size: 1.5em;
+            text-align: right;
+            font-family: 'Brush Script MT', cursive;
+            margin-top: 30px;
+            color: #ffd1dc;
+        }
+
+        .stars {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: -2;
+        }
+
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 3s infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+
+        .memory-box {
+            background: rgba(255, 255, 255, 0.12);
+            padding: 25px;
+            margin: 15px 0;
+            border-radius: 15px;
+            border-left: 5px solid #ffd1dc;
+            transition: all 0.3s ease;
+        }
+
+        .memory-box:hover {
+            background: rgba(255, 255, 255, 0.22);
+            transform: translateX(10px);
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5em; }
+            .message { font-size: 1.1em; }
+            .card { padding: 25px; }
+            .cake { font-size: 80px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="stars" id="stars"></div>
+    <div class="heart-container" id="hearts"></div>
+    
+    <div class="container">
+        <div class="section">
+            <h1>Happy Birthday Minsa! 🎂</h1>
+            <div class="card">
+                <p class="message">
+                    Today marks another beautiful year of your life, and I'm grateful our worlds collided in this vast digital universe.
+                </p>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="card">
+                <h2 style="text-align: center; margin-bottom: 25px;">What You Mean to Me 💫</h2>
+                <div class="memory-box">
+                    <p>You've opened up your world to me in ways I never imagined. From hearing about Esra to learning about your family, each story makes me feel closer to the people who shaped you into who you are.</p>
+                </div>
+                <div class="memory-box">
+                    <p>The simplest things bring the biggest smiles. A text notification. A liked message. Knowing you're there makes ordinary moments feel extraordinary.</p>
+                </div>
+                <div class="memory-box">
+                    <p>I carry a quiet hope in my heart - to one day sit across from you, to hear your voice without screens between us, and to share moments that memory can hold onto forever.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="card">
+                <h2 style="text-align: center; margin-bottom: 20px;">Make a Wish! 🎂</h2>
+                <div class="cake-container">
+                    <div class="cake" id="cakeEmoji" onclick="blowCandle()">
+                        🎂
+                        <span class="candle" id="candle">🕯️</span>
+                    </div>
+                    <p class="instruction" id="instruction">Click the candle to blow it out!</p>
+                </div>
+                <div class="wish-popup" id="wishPopup">
+                    <h3 style="margin-bottom: 20px;">My Wish For You ✨</h3>
+                    <p style="font-size: 1.2em; line-height: 1.7;">
+                        I wish for your days to be filled with laughter that reaches your eyes, 
+                        moments that warm your soul, and dreams that come true one by one. 
+                        May you find peace in every sunset and hope in every sunrise. 
+                        You deserve all the beauty this world has to offer, and so much more.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="dua-box">
+                <h2 style="margin-bottom: 25px;">🤲 My Dua</h2>
+                <p class="dua-text">
+                    Every prayer I whisper carries your name now. May Allah keep you safe from everything that could harm you - 
+                    from worries that steal your peace, from pain that touches your heart, and from anything that dims your light.
+                </p>
+                <p class="dua-text">
+                    May He bless you with happiness that never fades, health that keeps you strong, 
+                    and a heart that remains full of hope. Ameen.
+                </p>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="card">
+                <p class="turkish-quote">
+                    "Gönülden gönle yol var"<br>
+                    <span style="font-size: 0.7em;">(There is a path from heart to heart)</span>
+                </p>
+                <p class="message" style="font-size: 1.2em; margin-top: 30px;">
+                    No matter the distance, our connection remains. Here's to your special day and to all the wonderful moments yet to come.
+                </p>
+                <p class="signature">~ With all my heart, Mustafa 💕</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Create floating hearts
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.innerHTML = '💝';
+            heart.style.left = Math.random() * 100 + '%';
+            heart.style.animationDuration = (Math.random() * 3 + 4) + 's';
+            heart.style.animationDelay = Math.random() * 2 + 's';
+            document.getElementById('hearts').appendChild(heart);
+            
+            setTimeout(() => heart.remove(), 8000);
+        }
+
+        setInterval(createHeart, 800);
+
+        // Create stars
+        function createStars() {
+            const starsContainer = document.getElementById('stars');
+            for (let i = 0; i < 100; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.animationDelay = Math.random() * 3 + 's';
+                starsContainer.appendChild(star);
+            }
+        }
+
+        createStars();
+
+        // Blow candle and show wish
+        let candleBlown = false;
+        function blowCandle() {
+            if (candleBlown) return;
+            
+            const candle = document.getElementById('candle');
+            const wishPopup = document.getElementById('wishPopup');
+            const instruction = document.getElementById('instruction');
+            
+            candle.classList.add('blown');
+            candleBlown = true;
+            
+            setTimeout(() => {
+                candle.style.display = 'none';
+                wishPopup.style.display = 'block';
+                instruction.style.display = 'none';
+                
+                // Create burst of hearts
+                for (let i = 0; i < 15; i++) {
+                    setTimeout(createHeart, i * 100);
+                }
+            }, 500);
+        }
+
+        // Smooth scroll effect
+        document.querySelectorAll('.section').forEach((section, index) => {
+            section.style.animationDelay = `${index * 0.2}s`;
+        });
+    </script>
+</body>
+</html>
